@@ -7,15 +7,29 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
+
+<h3>
+  Hello There! To add a User, populate the field and press submit.
+</h3>
+
 <form action="/people" method="POST" accept-charset="utf-8">
   Name: <input name = "name" /> <br>
   Favorite City: <input name = "favoriteCity" /> <br>
-  <button type = "submit">Submit</button>
+  <button type = "submit" >Submit</button>
 </form>
+<p>
+Example: <br>
+  Name: Sean <br>
+  Favorite City: New York <br>
+
   {{#people}}
+  <h3>Great! Here's your User</h3>
   ID: {{id}} <br>
   Name: {{name}} <br>
   Favorite City: {{favoritecity}} <br>
   {{/people}}
 </body>
+<script>
+
+</script>
 </html>

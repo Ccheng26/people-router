@@ -4,12 +4,13 @@ const express = require ('express'),
 
 // get route for /
 router.get("/", function(req,res){
-  console.log("general leads to index file");
+  console.log("render index file");
   res.render('index');
 })
 
 // get route for people, will render the index file in people folder in views
 router.get("/people",function(req,res){
+  console.log("get request")
   db.any("SELECT * FROM people")
   .then(function(data){
     var peopleInfo= {'people': data};
@@ -30,9 +31,12 @@ router.get("/people/:id",function(req,res){
 
 router.post("/people", function(req,res){
   people = req.body;
-  db.none('INSERT INTO people (name, favoriteCity) VALUES ($1, $2)',
+  var insertItem = db.none('INSERT INTO people (name, favoriteCity) VALUES ($1, $2)',
     [people.name, people.favoriteCity])
-  res.render('people/index', peopleInfo)
+  insertItem.then(function(){
+    console.log("success")
+      res.redirect('/people')
+  })
 })
 
 module.exports = router;
