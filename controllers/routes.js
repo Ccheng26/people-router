@@ -7,9 +7,14 @@ router.get("/", function(req,res){
   res.render('index');
 })
 
+// get route for people, will render the index file in people folder in views
 router.get("/people",function(req,res){
   console.log("this route leads to people");
   res.render('people/index');
+})
+
+router.post("/people", function(req,res){
+  console.log("post to peeps")
 })
 
 module.exports = router;
