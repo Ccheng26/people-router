@@ -7,11 +7,15 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
-
+<form action="/people" method="POST" accept-charset="utf-8">
+  Name: <input name = "name" /> <br>
+  Favorite City: <input name = "favoriteCity" /> <br>
+  <button type = "submit">Submit</button>
+</form>
   {{#people}}
-  {{id}}
-  {{name}}
-  {{favoritecity}}
+  ID: {{id}} <br>
+  Name: {{name}} <br>
+  Favorite City: {{favoritecity}} <br>
   {{/people}}
 </body>
 </html>
