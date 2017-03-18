@@ -10,15 +10,29 @@ router.get("/", function(req,res){
 
 // get route for people, will render the index file in people folder in views
 router.get("/people",function(req,res){
-  console.log("get request")
+  // pulls information from database, in this case, getting all the db info from the table people
   db.any("SELECT * FROM people")
   .then(function(data){
+    // insert information into an object, so we can render it with mustache
     var peopleInfo= {'people': data};
-    console.log(data)
     res.render('people/index', peopleInfo);
   })
 })
 
+// post route for people, will add a user
+router.post("/people", function(req,res){
+  // grabs form data from index.html in views/people
+  people = req.body;
+  // inserts the form data into database
+  var insertItem = db.none('INSERT INTO people (name, favoriteCity) VALUES ($1, $2)',
+    [people.name, people.favoriteCity])
+  // after data is inserted, hit the get route
+  insertItem.then(function(){
+    res.redirect('/people')
+  })
+})
+
+// get route for individual person, id will bring user to show page for individual user info
 router.get("/people/:id",function(req,res){
   id = req.params.id;
   db.one("SELECT * FROM people WHERE id=$1",
@@ -29,14 +43,6 @@ router.get("/people/:id",function(req,res){
   )
 })
 
-router.post("/people", function(req,res){
-  people = req.body;
-  var insertItem = db.none('INSERT INTO people (name, favoriteCity) VALUES ($1, $2)',
-    [people.name, people.favoriteCity])
-  insertItem.then(function(){
-    console.log("success")
-      res.redirect('/people')
-  })
-})
+
 
 module.exports = router;
