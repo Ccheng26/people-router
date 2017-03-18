@@ -1,6 +1,7 @@
 const express = require ('express'),
       mustache = require('mustache-express'),
-      pgp = require('pg-promise'),
+      pgp = require(process.env.DATABASE_URL || 'pg-promise')(),
+      db = pgp('postgres://ccheng@localhost:5432/spotify/'),
       methodOverride = require('method-override'),
       bodyParser = require('body-parser'),
       route = require('./routes'),
