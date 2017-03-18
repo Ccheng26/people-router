@@ -1,7 +1,5 @@
 const express = require ('express'),
       mustache = require('mustache-express'),
-      pgp = require(process.env.DATABASE_URL || 'pg-promise')(),
-      db = pgp('postgres://ccheng@localhost:5432/spotify/'),
       methodOverride = require('method-override'),
       bodyParser = require('body-parser'),
       route = require('./routes'),
@@ -19,3 +17,4 @@ module.exports = function(app) {
   app.use(bodyParser.urlencoded({ extended: false}));
   app.use(bodyParser.json());
 }
+
