@@ -101,9 +101,9 @@ Have [PostgreSQL](https://www.postgresql.org/) (default on OS X Server version 1
 #### In Terminal
  ```bash
 # Clone this repository with SSH
-git clone git@github.com:Ccheng26/spotify-fellowship.git
+git clone git@github.com:Ccheng26/people-router.git
 # Go into the repository
-cd spotify-fellowshop
+cd people-router
 # Install dependencies
 npm install
 # Create database (see setup for additional instructions)
