@@ -3,10 +3,10 @@ const express = require ('express'),
       db = require('../db/db');
 
 // get route for /
-router.get("/", function(req,res){
-  console.log("render index file");
-  res.render('index');
-})
+// router.get("/", function(req,res){
+//   console.log("render index file");
+//   res.render('index');
+// })
 
 // get route for people, will render the index file in people folder in views
 router.get("/people",function(req,res){
@@ -15,7 +15,7 @@ router.get("/people",function(req,res){
   .then(function(data){
     // insert information into an object, so we can render it with mustache
     var peopleInfo= {'people': data};
-    res.render('people/index', peopleInfo);
+    res.render('index', peopleInfo);
   })
 })
 
@@ -40,7 +40,7 @@ router.get("/people/:id",function(req,res){
   db.one("SELECT * FROM people WHERE id = $1",
     [req.params.id]).then(function(data){
       var personId = {'people':data};
-      res.render('people/show', personId)
+      res.render('show', personId)
     }
   )
 })

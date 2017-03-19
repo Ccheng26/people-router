@@ -7,6 +7,7 @@ module.exports = app;
 
 // require configuration set
 require('./controllers/config')(app)
+
 // add routes file
 app.use(require('./controllers/routes'));
 

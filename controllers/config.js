@@ -13,7 +13,10 @@ module.exports = function(app) {
   //look for static files here
   app.use(express.static(path.join(__dirname, '..', 'public')));
 
+  //method override for put and delete requests
   app.use(methodOverride('_method'));
+
+  //body parser retrieves form data and stores in req.body
   app.use(bodyParser.urlencoded({ extended: false}));
   app.use(bodyParser.json());
 }
