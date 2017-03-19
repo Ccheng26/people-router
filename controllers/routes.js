@@ -2,12 +2,6 @@ const express = require ('express'),
       router = express.Router(),
       db = require('../db/db');
 
-// get route for /
-// router.get("/", function(req,res){
-//   console.log("render index file");
-//   res.render('index');
-// })
-
 // get route for people, will render the index file in people folder in views
 router.get("/people",function(req,res){
   // pulls information from database, in this case, getting all the db info from the table people
