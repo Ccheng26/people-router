@@ -43,6 +43,15 @@ router.get("/people/:id",function(req,res){
   )
 })
 
+router.put("/people", function(req,res){
+  person = req.body;
+  db.none("UPDATE people SET favoriteCity = $1 WHERE id =$2",
+    [person.favoriteCity, id]).then(
+      function(){
+        res.redirect('/people/' + id
+        )}
+      )
+})
 
 
 module.exports = router;

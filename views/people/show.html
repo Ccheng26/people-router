@@ -8,8 +8,14 @@
 </head>
 <body>
 {{#people}}
+
   Name: {{name}}<br>
-  Favorite City: {{favoritecity}}
+  Favorite City: {{favoritecity}} <br>
+  To update your favorite city <br>
+  <form method = "POST" action = "/people?_method=PUT">
+  <input name = "favoriteCity" value = "{{favoritecity}}">
+  <button type=  "submit">Save</button>
+  </form>
 {{/people}}
 
 </body>
