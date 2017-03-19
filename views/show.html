@@ -22,14 +22,14 @@
   </p>
   <!-- This will work with the method described above in the Note in routes
     <form method = "POST" action = "/people?_method=PUT"> -->
-    <form method = "POST" action = "/people/{{id}}?_method=PUT">
+    <form method = "POST" action = "/{{id}}?_method=PUT">
     <label for = "favoriteCity">Favorite City:</label>
     <input id = "favoriteCity" name = "favoriteCity" value = "{{favoritecity}}">
     <button type= "submit">Save</button>
     </form>
   {{/people}}
   <br>
-  <button onclick="location.href='/people'">Go Back</button>
+  <button onclick="location.href='/'">Go Back</button>
 
 </main>
 

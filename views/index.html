@@ -13,8 +13,8 @@
   </h3>
 
   <!-- form to add person to database -->
-  <form action="/people" method="POST" accept-charset="utf-8">
-    <p class="">To add a User, populate the field and press submit.</p>
+  <form action="/" method="POST" accept-charset="utf-8">
+    <p>To add a User, populate the field and press submit.</p>
     <p class = "row">
       <label for= "name">Name: </label>
       <input id = "name" name = "name" />
@@ -40,12 +40,12 @@
   <p>Click on the person's name to view and update details.</p>
   Id: {{id}} <br>
   <!-- link to see individual user -->
-  Name: <a href="/people/{{id}}">{{name}}</a><br>
+  Name: <a href="/{{id}}">{{name}}</a><br>
   Favorite City: {{favoritecity}} <br>
 
   <!-- form to delete user from database -->
 
-  <form class = "delete" method="POST" action="/people/{{id}}?_method=DELETE">
+  <form class = "delete" method="POST" action="/{{id}}?_method=DELETE">
   <p class = "delete">Or... press the button to delete</p>
   <button class = "delete">Delete User</button>
   </form>

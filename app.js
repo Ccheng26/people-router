@@ -9,6 +9,7 @@ module.exports = app;
 require('./controllers/config')(app)
 
 // add routes file
+app.use(require('./controllers/people'));
 app.use(require('./controllers/routes'));
 
 // generate port, set default to 3000 for now
