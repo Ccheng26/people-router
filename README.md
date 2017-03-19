@@ -65,7 +65,7 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
 
 ### Directory structure:
 ```
-spotify-fellowship/
+people-router/
 ├── controllers/
 │   ├── config.js
 │   ├── people.js
