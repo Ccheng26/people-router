@@ -7,21 +7,28 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
-  <h3>
-    Hello There! To add a User, populate the field and press submit.
+<main>
+   <h3>
+    Hello There!
   </h3>
 
   <!-- form to add person to database -->
   <form action="/people" method="POST" accept-charset="utf-8">
-    Name: <input name = "name" /> <br>
-    Favorite City: <input name = "favoriteCity" /> <br>
+    <p class="">To add a User, populate the field and press submit.</p>
+    <p class = "row">
+      <label for= "name">Name: </label>
+      <input id = "name" name = "name" />
+    </p>
+    <p class = "row">
+      <label for= "favoriteCity">Favorite City:  </label>
+      <input id = "favoriteCity" name = "favoriteCity" />
+    </p>
     <button type = "submit" >Submit</button>
   </form>
 
   <!-- example text on what to put in fields -->
-  <p>
-    Example: <br>
+  <p class = "example">
+    Example: <br><br>
     Name: Sean <br>
     Favorite City: New York <br>
   </p>
@@ -29,19 +36,23 @@
   <!-- mustache templating here, will display users -->
   {{#people}}
 
-  <h3>Great! Here's your User</h3>
-
-  ID: {{id}} <br>
+  <h3>Great!</h3>
+  <p>Click on the person's name to view and update details.</p>
+  Id: {{id}} <br>
   <!-- link to see individual user -->
-  Name: <a href="/people/{{id}}">{{name}} </a><br>
+  Name: <a href="/people/{{id}}">{{name}}</a><br>
   Favorite City: {{favoritecity}} <br>
 
   <!-- form to delete user from database -->
-  <form method="POST" action="/people/{{id}}?_method=DELETE">
-  <button>Delete User</button>
+
+  <form class = "delete" method="POST" action="/people/{{id}}?_method=DELETE">
+  <p class = "delete">Or... press the button to delete</p>
+  <button class = "delete">Delete User</button>
   </form>
 
   {{/people}}
+</main>
+
 
 </body>
 </html>

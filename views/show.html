@@ -7,19 +7,32 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-{{#people}}
 
-  Name: {{name}}<br>
-  Favorite City: {{favoritecity}} <br>
-  To update your favorite city <br>
-<!-- This will work with the method described above in the Note in routes
-  <form method = "POST" action = "/people?_method=PUT"> -->
-  <form method = "POST" action = "/people/{{id}}?_method=PUT">
-  <input name = "favoriteCity" value = "{{favoritecity}}">
-  <button type=  "submit">Save</button>
-  </form>
-{{/people}}
+<main>
+  {{#people}}
+  <h3>
+    Now Viewing {{name}}
+  </h3>
+  <p>
+    Id: {{Id}}
+    Favorite City: {{favoritecity}}
+  </p>
+  <p>
+    To update {{name}}'s favorite city, change the input field and click save
+  </p>
+  <!-- This will work with the method described above in the Note in routes
+    <form method = "POST" action = "/people?_method=PUT"> -->
+    <form method = "POST" action = "/people/{{id}}?_method=PUT">
+    <label for = "favoriteCity">Favorite City:</label>
+    <input id = "favoriteCity" name = "favoriteCity" value = "{{favoritecity}}">
+    <button type=  "submit">Save</button>
+    </form>
+  {{/people}}
+  <br>
+  <button onclick="location.href='/people'">Go Back</button>
 
-<a href="/people">Go Back</a>
+</main>
+
+
 </body>
 </html>

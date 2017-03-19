@@ -3,3 +3,33 @@ body{
   padding: 0;
   font-family: 'Helvetica';
 }
+main{
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 80%;
+}
+form{
+  display: table;
+  display: inline-block;
+  padding-right: 3em;
+}
+.row{
+  display: table-row;
+}
+label, input{
+  display: table-cell;
+}
+.example{
+  display: inline-block;
+  vertical-align: top;
+}
+
+button{
+  border-radius: 20%;
+}
+.delete{
+  display: inline-block;
+}
