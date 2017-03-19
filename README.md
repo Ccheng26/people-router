@@ -8,7 +8,7 @@ Thank you for using our service, to save time on entering routes, I've construct
 +  updating their favorite cities
 +  deleting users 
 
-This can all be accessed [here](ccheng-person-finder.herokuapp.com). If you would rather not use the web application, proceed to the Client Instructions section.
+This can all be accessed [here](http://ccheng-person-finder.herokuapp.com). If you would rather not use the web application, proceed to the Client Instructions section.
 
 ## Client Instructions
 
@@ -18,13 +18,15 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
 + A **GET** request to **/people** will return all values in the database.
   + Type or paste **ccheng-person-finder.herokuapp.com/people** in the *'Enter request URL'* field and hit **Send**.
   + You will see an empty array if the database is empty.
+
+![Get](http://i.imgur.com/8Ct8jnV.png)
 + A **POST** request to **/people** will add a value to a user in the database.
   + Type or paste **ccheng-person-finder.herokuapp.com/people** in the *'Enter request URL'* field.
-  + Select **POST** in the action list, then the **Body** tab, select the radio button *x-www-form-urlencoded* and enter the data you would like to insert into the table. The table structure has the following values: *id, name, and favoriteCity*. The id is automatically generated when we enter a value.
+  + Select **POST** in the action list, then the **Body** tab, select the radio option *'x-www-form-urlencoded'* and enter the data you would like to insert into the table. The table structure has the following values: *id, name, and favoriteCity*. The id is automatically generated when we enter a value.
   + We can add the following attributes: <br>
     *name : “Sean”, favoriteCity : “New York”* <br>
     by setting up the key value pairs. 
-  + Send the request and you should see this below. The POST route for /people has been configured to retrieve objects created in the previous request.
+  + Send the request and you should see this below. The **POST** route for **/people** has been configured to retrieve objects created in the previous request.
 ```json
 [
   {
@@ -34,15 +36,20 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
   }
 ]
 ```
-+ A PUT request can be made to /people/:id to modify the city attribute.
+![Post](http://i.imgur.com/7svzGJj.png)
+
++ A **PUT** request can be made to **/people/:id** to modify the city attribute.
   + Type or paste **ccheng-person-finder.herokuapp.com/people/1** in the *'Enter request URL'* field.
   + Change the action to **PUT**
     + or leave the action on **POST**, type or paste **http://ccheng-person-finder.herokuapp.com/people/1?_method=PUT**, next steps are the same.
   + Since we are only changing one value, uncheck the box next to name.
-  + Change the value of favoriteCity by typing a new value in the value field, we can change it to "Brooklyn".
+  + Change the value of *favoriteCity* by typing a new value in the value field, we can change it to *"Brooklyn"*.
   + The message "**City Updated"** will appear.
+
+![Put](http://i.imgur.com/hiVntPi.png)
+
 + To view the updated request, make a **GET** request to **ccheng-person-finder.herokuapp.com/people/1**
-  + The favoritecity will be updated to "Brooklyn".
+  + The *favoritecity* will be updated to *"Brooklyn"*.
 + To remove a user a **DELETE** request can be made to **/people/:id**.
   + Type or paste **ccheng-person-finder.herokuapp.com/people/1** in the *'Enter request URL'* field.
   + Change the action to **DELETE**
