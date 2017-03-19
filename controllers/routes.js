@@ -45,16 +45,34 @@ router.get("/people/:id",function(req,res){
   )
 })
 
-// // put route for updating the city
+/* Note bad practice to do a PUT request without an id
+  technically you can do the put request, but not remotely
+  since I have the put request form within the individual page where it can pull the id,
+  however you will not be able to do the update your entries without using the page navigation;
+  There's a better way listed below
+
 router.put("/people", function(req,res){
   person = req.body;
   db.none("UPDATE people SET favoriteCity = $1 WHERE id =$2",
     [person.favoriteCity, id]).then(
-      // nesting this in a function so you won't need to hit the reload button to see results
       function(){
         res.redirect('/people/' + id
       )}
     )
 })
+*/
+
+router.put("/people/:id", function(req,res){
+  person = req.body;
+  id = req.params.id;
+  db.none("UPDATE people SET favoriteCity = $1 WHERE id = $2",
+    [person.favoriteCity, id]).then(
+      // nesting this in a function so you won't need to hit the reload button to see results
+      function(){
+        res.redirect('/people/' + id)
+      }
+    )
+})
+
 
 module.exports = router;

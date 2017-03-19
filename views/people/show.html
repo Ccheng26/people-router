@@ -12,7 +12,9 @@
   Name: {{name}}<br>
   Favorite City: {{favoritecity}} <br>
   To update your favorite city <br>
-  <form method = "POST" action = "/people?_method=PUT">
+<!-- This will work with the method described above in the Note
+  <form method = "POST" action = "/people?_method=PUT"> -->
+  <form method = "POST" action = "/people/{{id}}?_method=PUT">
   <input name = "favoriteCity" value = "{{favoritecity}}">
   <button type=  "submit">Save</button>
   </form>
