@@ -62,6 +62,7 @@ router.put("/people", function(req,res){
 })
 */
 
+// updates selected person id's favorite city
 router.put("/people/:id", function(req,res){
   person = req.body;
   id = req.params.id;
@@ -73,6 +74,18 @@ router.put("/people/:id", function(req,res){
       }
     )
 })
+
+// deletes a person
+router.delete('/people/:id',function(req,res){
+  id = req.params.id
+  db.none("DELETE FROM people WHERE id= $1", [id]
+  ).catch(function(){
+      res.send('Sorry no user here')
+  }).then(function(){
+      res.redirect('/people')
+  })
+})
+
 
 
 module.exports = router;

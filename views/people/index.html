@@ -8,28 +8,40 @@
 </head>
 <body>
 
-<h3>
-  Hello There! To add a User, populate the field and press submit.
-</h3>
+  <h3>
+    Hello There! To add a User, populate the field and press submit.
+  </h3>
 
-<form action="/people" method="POST" accept-charset="utf-8">
-  Name: <input name = "name" /> <br>
-  Favorite City: <input name = "favoriteCity" /> <br>
-  <button type = "submit" >Submit</button>
-</form>
-<p>
-Example: <br>
-  Name: Sean <br>
-  Favorite City: New York <br>
+  <!-- form to add person to database -->
+  <form action="/people" method="POST" accept-charset="utf-8">
+    Name: <input name = "name" /> <br>
+    Favorite City: <input name = "favoriteCity" /> <br>
+    <button type = "submit" >Submit</button>
+  </form>
 
+  <!-- example text on what to put in fields -->
+  <p>
+    Example: <br>
+    Name: Sean <br>
+    Favorite City: New York <br>
+  </p>
+
+  <!-- mustache templating here, will display users -->
   {{#people}}
+
   <h3>Great! Here's your User</h3>
+
   ID: {{id}} <br>
+  <!-- link to see individual user -->
   Name: <a href="/people/{{id}}">{{name}} </a><br>
   Favorite City: {{favoritecity}} <br>
-  {{/people}}
-</body>
-<script>
 
-</script>
+  <!-- form to delete user from database -->
+  <form method="POST" action="/people/{{id}}?_method=DELETE">
+  <button>Delete User</button>
+  </form>
+
+  {{/people}}
+
+</body>
 </html>
