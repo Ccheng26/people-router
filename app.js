@@ -5,14 +5,16 @@ const express = require ('express'),
 
 module.exports = app;
 
-// require configuration set
+// require configuration set, includes middleware requirements
 require('./controllers/config')(app)
 
-// add routes file
+// people routes will return json data
 app.use(require('./controllers/people'));
+
+// routes file designates client side routes
 app.use(require('./controllers/routes'));
 
-// generate port, set default to 3000 for now
+// generate port, set default to 3000 on localhost
 app.listen(port, function(){
-  console.log(`Server is alive on ${port}!`)
+  // console.log(`Server is alive on ${port}!`)
 })

@@ -82,9 +82,4 @@ router.delete('/people/:id',function(req,res){
   })
 })
 
-// router.get('*', function(req, res){
-//   res.send(
-//     'Invalid page: available routes are GET /people, POST /people, PUT /people/:id and DELETE /people/:id');
-// });
-
 module.exports = router;
