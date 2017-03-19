@@ -32,10 +32,12 @@ router.post("/people", function(req,res){
   })
 })
 
-// get route for individual person, id will bring user to show page for individual user info
+// get route for individual person, id will bring user to show page for individual person's info
 router.get("/people/:id",function(req,res){
+  // takes the person's id as a parameter
   id = req.params.id;
-  db.one("SELECT * FROM people WHERE id=$1",
+  // pulls all information from database, where person id matches url
+  db.one("SELECT * FROM people WHERE id = $1",
     [req.params.id]).then(function(data){
       var personId = {'people':data};
       res.render('people/show', personId)
@@ -43,15 +45,16 @@ router.get("/people/:id",function(req,res){
   )
 })
 
+// // put route for updating the city
 router.put("/people", function(req,res){
   person = req.body;
   db.none("UPDATE people SET favoriteCity = $1 WHERE id =$2",
     [person.favoriteCity, id]).then(
+      // nesting this in a function so you won't need to hit the reload button to see results
       function(){
         res.redirect('/people/' + id
-        )}
-      )
+      )}
+    )
 })
-
 
 module.exports = router;
