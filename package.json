@@ -1,7 +1,7 @@
 {
-  "name": "spotify-fellowship",
+  "name": "people-router",
   "version": "1.0.0",
-  "description": "Code Challenge for Spotify Fellowship",
+  "description": "Routing Requests",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ccheng26/spotify-fellowship.git"
+    "url": "git+https://github.com/Ccheng26/people-router.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ccheng26/spotify-fellowship/issues"
+    "url": "https://github.com/Ccheng26/people-router/issues"
   },
-  "homepage": "https://github.com/Ccheng26/spotify-fellowship#readme",
+  "homepage": "https://github.com/Ccheng26/people-router#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
