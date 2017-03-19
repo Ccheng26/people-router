@@ -9,12 +9,12 @@
 <body>
 <main>
    <h3>
-    Hello There!
+    Hello There! The page you are actively viewing has sent a GET request to retrieve the information from the database.
   </h3>
 
   <!-- form to add person to database -->
   <form action="/" method="POST" accept-charset="utf-8">
-    <p>To add a User, populate the field and press submit.</p>
+    <p>To add a User (POST request), populate the field and press submit.</p>
     <p class = "row">
       <label for= "name">Name: </label>
       <input id = "name" name = "name" />
@@ -46,7 +46,7 @@
   <!-- form to delete user from database -->
 
   <form class = "delete" method="POST" action="/{{id}}?_method=DELETE">
-  <p class = "delete">Or... press the button to delete</p>
+  <p class = "delete">Or... press the button to delete user (send a DELETE request)</p>
   <button class = "delete">Delete User</button>
   </form>
 

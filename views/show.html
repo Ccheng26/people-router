@@ -14,11 +14,11 @@
     Now Viewing {{name}}
   </h3>
   <p>
-    Id: {{Id}}
+    Id: {{id}} <br>
     Favorite City: {{favoritecity}}
   </p>
   <p>
-    To update {{name}}'s favorite city, change the input field and click save
+    To update {{name}}'s favorite city (PUT request), change the input field and click save.
   </p>
   <!-- This will work with the method described above in the Note in routes
     <form method = "POST" action = "/people?_method=PUT"> -->
@@ -29,6 +29,7 @@
     </form>
   {{/people}}
   <br>
+  To return to the previous page
   <button onclick="location.href='/'">Go Back</button>
 
 </main>
