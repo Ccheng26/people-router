@@ -1,7 +1,7 @@
 // set up requirements for npm packages
 const express = require ('express'),
       app = express(),
-      PORT = process.env.PORT || 3000;
+      port = process.env.PORT || 3000;
 
 module.exports = app;
 
@@ -12,6 +12,6 @@ require('./controllers/config')(app)
 app.use(require('./controllers/routes'));
 
 // generate port, set default to 3000 for now
-app.listen(PORT, function(){
+app.listen(port, function(){
   console.log(`Server is alive on ${port}!`)
 })
