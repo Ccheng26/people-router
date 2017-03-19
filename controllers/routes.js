@@ -86,6 +86,8 @@ router.delete('/people/:id',function(req,res){
   })
 })
 
-
+router.get('*', function(req, res){
+  res.render('error');
+});
 
 module.exports = router;
