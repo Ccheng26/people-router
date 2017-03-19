@@ -12,7 +12,7 @@ This can all be accessed [here](http://ccheng-person-finder.herokuapp.com). If y
 
 ## Client Instructions
 
-An alternative method of accessing this information is by entering the routes listed below in [Postman](https://www.getpostman.com/). I have configured a seperate API route to return JSON data for you. The web application and the requests made within Postman will be affecting the same data set, they're different ways of viewing information.
+An alternative method of accessing this information is by entering the routes listed below in [Postman](https://www.getpostman.com/). I have configured a separate API route to return JSON data for you. The web application and the requests made within Postman will be affecting the same data set, they're different ways of viewing information.
 
 Here are some instructions for the CRUD capabilities mentioned earlier:
 + A **GET** request to **/people** will return all values in the database.
@@ -26,7 +26,7 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
   + We can add the following attributes: <br>
     *name : “Sean”, favoriteCity : “New York”* <br>
     by setting up the key value pairs. 
-  + Send the request and you should see this below. The **POST** route for **/people** has been configured to retrieve objects created in the previous request.
+  + **Send** the request and you should see this below. The **POST** route for **/people** has been configured to retrieve objects created in the previous request.
 ```json
 [
   {
@@ -41,9 +41,10 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
 + A **PUT** request can be made to **/people/:id** to modify the city attribute.
   + Type or paste **ccheng-person-finder.herokuapp.com/people/1** in the *'Enter request URL'* field.
   + Change the action to **PUT**
-    + or leave the action on **POST**, type or paste **http://ccheng-person-finder.herokuapp.com/people/1?_method=PUT**, next steps are the same.
+    + or leave the action on **POST**, type or paste **ccheng-person-finder.herokuapp.com/people/1?_method=PUT**, next steps are the same.
   + Since we are only changing one value, uncheck the box next to name.
-  + Change the value of *favoriteCity* by typing a new value in the value field, we can change it to *"Brooklyn"*.
+  + Change the value of *favoriteCity* by typing a new value in the value field, we can change it to *"Brooklyn"*. 
+  + **Send** the request.
   + The message "**City Updated"** will appear.
 
 ![Put](http://i.imgur.com/hiVntPi.png)
@@ -53,9 +54,9 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
 + To remove a user a **DELETE** request can be made to **/people/:id**.
   + Type or paste **ccheng-person-finder.herokuapp.com/people/1** in the *'Enter request URL'* field.
   + Change the action to **DELETE**
-    + or leave the action on **POST**, type or paste **http://ccheng-person-finder.herokuapp.com/people/1?_method=DELETE**, next steps are the same.
-  + The message **'User Deleted'** will appear.
-+ If you make another **GET** request to to **ccheng-person-finder.herokuapp.com/people**.
+    + or leave the action on **POST**, type or paste **ccheng-person-finder.herokuapp.com/people/1?_method=DELETE**, next steps are the same.
+  + **Send** the request and the message **'User Deleted'** will appear.
++ If you make another **GET** request to **ccheng-person-finder.herokuapp.com/people**.
   + You'll see an empty array, if you've removed all the users.
 
 **Note:** As stated routes can still be accessed above by hitting the **ccheng-person-finder.herokuapp.com/** url, it will return HTML as opposed to JSON data.
@@ -64,7 +65,8 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
 
 ### Directory structure:
 ```
-├── contollers/
+spotify-fellowship/
+├── controllers/
 │   ├── config.js
 │   ├── people.js
 │   ├── routes.js
@@ -85,14 +87,17 @@ Here are some instructions for the CRUD capabilities mentioned earlier:
 + HTML: page rendering
 + CSS: page formatting/styling
 + Node
- + Express: route and server configuration
- + Mustache: page templating
- + Pg-promise: database item retreval
- + Method-override: for PUT and DELETE requests
+  + Express: route and server configuration
+  + Mustache: page templating
+  + Pg-promise: database item retrieval
+  + Method-override: for PUT and DELETE requests
+  + Body-parser: using body.req to retrieve form data
 + GitHub: version control
 + Heroku: deployment with server hosting
 
-### Installation Instructions:
+### Installation Instructions (OSX):
+Have [PostgreSQL](https://www.postgresql.org/) (default on OS X Server version 10.7 and later) and [Node](https://nodejs.org/en/) installed
+
 #### In Terminal
  ```bash
 # Clone this repository with SSH
@@ -106,12 +111,13 @@ createdb databaseName
 # Seed database schema
 psql -d databaseName -f db/user_schema.sql
 ```
-#### Edit db/db.js file, change the computerUsername and databaseName
+#### In db directory, revise db.js
 ```javascript
+// Change the computerUsername and databaseName
 const pgp = require('pg-promise')(),
       db = pgp(process.env.DATABASE_URL || 'postgres://computerUsername@localhost:5432/databaseName');
 ```
-#### Start the App
+#### Start the App in Terminal
 ```bash
 node app
 ```
